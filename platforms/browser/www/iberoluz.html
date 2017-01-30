@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+        <!--Solucion para la seguridad de android y iOS-->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com; img-src *">
+        <link rel="stylesheet" type="text/css" href="css/leaflet.css" />
+        <link rel="stylesheet" type="text/css" href="css/maps.css" />
+        <title>Maps</title>
+    </head>
+    <body>
+
+    	<div class="header">
+    		<img align="left" src="img/maps.png" width="48px">
+    		<span>Mapas con Geolocalización</span>
+    	</div>    	
+        
+		<div id="map"></div>
+
+		<div class="footer">
+    		Darkensses 2017.
+    	</div>
+
+        <script type="text/javascript" src="cordova.js"></script>
+        <script type="text/javascript" src="js/fastclick.js"></script>
+        <script type="text/javascript" src="js/leaflet.js"></script>        
+        <script type="text/javascript" src="js/maps.js"></script>
+        <script type="text/javascript" src="js/jquery-3.1.1.min.js"></script>
+        <script type="text/javascript" src="js/leaflet.ajax.min.js"></script>
+    </body>
+</html>
