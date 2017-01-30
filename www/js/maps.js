@@ -1,4 +1,3 @@
-var miMapa;
 var app = {
 	inicio: function(){
 		this.iniciaFastClick();				
@@ -9,12 +8,11 @@ var app = {
 	},	
 
 	dispositivoListo: function(){
-		//navigator.geolocation.getCurrentPosition(app.pintarCoordenadasEnMapa, app.errorAlSolicitarLocalizacion);
-		navigator.geolocation.watchPosition(app.pintarCoordenadasEnMapa, app.errorAlSolicitarLocalizacion, { timeout: 3000 });
+		navigator.geolocation.getCurrentPosition(app.pintarCoordenadasEnMapa, app.errorAlSolicitarLocalizacion);		
 	},
 
 	pintarCoordenadasEnMapa: function(position){
-		miMapa = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
+		var miMapa = L.map('map').setView([position.coords.latitude, position.coords.longitude], 13);
 
 		/*L.tileLayer('https://api.mapbox.com/styles/v1/mapbox/outdoors-v10/tiles/256/{z}/{x}/{y}?access_token=pk.eyJ1IjoiZGFya2Vuc3NlcyIsImEiOiJjaXlnanR1NGgwMzhhMnFyd3d2cXdmaDhvIn0.YeqObUXcRQ8K751sMLxAhA', {
     		attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
@@ -51,14 +49,9 @@ var app = {
     		var texto = 'Marcador en l(' + evento.latlng.lat.toFixed(2) + ') y L(' + evento.latlng.lng.toFixed(2);
     		app.pintarMarcador(evento.latlng, texto, miMapa);
     	})
-
-    	var watchID = navigator.geolocation.watchPosition(app.actualizaPosicion, app.errorAlSolicitarLocalizacion, {timeout: 30000});
+    	
 
 	},
-
-	actualizaPosicion:function(position){
-      app.pintaMarcador([position.coords.latitude, position.coords.longitude],'¡xxxxxxx!', miMapa);
-  },
 
 	myStyle: function(color){
 		var routeStyle = {
@@ -94,5 +87,6 @@ if('addEventListener' in document){
 		app.dispositivoListo();
 	}, false);
 }
+
 
 
